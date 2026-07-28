@@ -1,0 +1,36 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+void greetUser(const string& name, int age) {
+    cout << "Hello, " << name << "! You are " << age << " years old." << endl;
+}
+
+void saveToFile(const string& name, int age) {
+    ofstream outFile("user_data.txt");
+    if (outFile.is_open()) {
+        outFile << "Name: " << name << "\nAge: " << age << endl;
+        outFile.close();
+        cout << "Your data has been saved to 'user_data.txt'." << endl;
+    } else {
+        cerr << "Unable to open file for writing." << endl;
+    }
+}
+
+int main() {
+    string name;
+    int age;
+
+    cout << "Enter your name: ";
+    getline(cin, name);
+
+    cout << "Enter your age: ";
+    cin >> age;
+
+    greetUser(name, age);
+    saveToFile(name, age);
+
+    return 0;
+}
