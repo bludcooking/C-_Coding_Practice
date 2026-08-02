@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <tuple>
+#include <utility>
+
+struct Person {
+    std::string name;
+    int age;
+    double height;
+};
+
+int main() {
+    std::pair<std::string, int> student = {"Alice", 20};
+    auto [name, age] = student;
+    std::cout << "Student: " << name << ", Age: " << age << std::endl;
+
+    std::tuple<std::string, int, double> personTuple = {"Bob", 25, 1.85};
+    auto [personName, personAge, personHeight] = personTuple;
+    std::cout << "Person: " << personName << ", Age: " << personAge
+              << ", Height: " << personHeight << "m" << std::endl;
+
+    Person p = {"Charlie", 30, 1.75};
+    auto [personName2, personAge2, personHeight2] = p;
+    std::cout << "Person: " << personName2 << ", Age: " << personAge2
+              << ", Height: " << personHeight2 << "m" << std::endl;
+
+    return 0;
+}
